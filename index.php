@@ -1,18 +1,19 @@
 <?php
 require_once './vendor/autoload.php';
 
-use PhpOffice\PhpWord\Settings as PhpOfficeWordSettings;
+use PhpOffice\PhpWord\Settings as Settings;
+use \PhpOffice\PhpWord\IOFactory as IOFactory;
 
 function convertDocToPdf($docInputPath, $pdfOutputPath)
 {
     try {
         $domPdfPath = './vendor/dompdf/dompdf';
-        PhpOfficeWordSettings::setPdfRendererName('DomPDF');
-        PhpOfficeWordSettings::setPdfRendererPath($domPdfPath);
+        Settings::setPdfRendererName('DomPDF');
+        Settings::setPdfRendererPath($domPdfPath);
 
-        $Content = \PhpOffice\PhpWord\IOFactory::load($docInputPath);
+        $Content = IOFactory::load($docInputPath);
 
-        $PDFWriter = \PhpOffice\PhpWord\IOFactory::createWriter($Content, 'PDF');
+        $PDFWriter = IOFactory::createWriter($Content, 'PDF');
         $PDFWriter->save($pdfOutputPath);
         return $PDFWriter;
     } catch (Exception $e) {
