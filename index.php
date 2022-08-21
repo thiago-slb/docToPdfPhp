@@ -1,7 +1,7 @@
 <?php
 require_once './vendor/autoload.php';
 
-use PhpOffice\PhpWord\Settings as Settings;
+use \PhpOffice\PhpWord\Settings as Settings;
 use \PhpOffice\PhpWord\IOFactory as IOFactory;
 
 function convertDocToPdf($docInputPath, $pdfOutputPath)
