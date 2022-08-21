@@ -1,0 +1,1 @@
+RUN >> php index.php
