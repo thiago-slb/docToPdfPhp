@@ -1,2 +1,2 @@
-RUN >> composer install
-RUN >> php index.php
+- RUN >> composer install
+- RUN >> php index.php
